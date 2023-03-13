@@ -10,7 +10,7 @@ use yii\grid\GridView;
 /** @var app\models\ProjectenSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Projectens';
+$this->title = 'Projecten';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="projecten-index">
@@ -27,9 +27,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            //['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'klanten_id',
             'klanten_naam',
             'adres',
