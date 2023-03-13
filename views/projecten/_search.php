@@ -21,9 +21,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'klanten_naam') ?>
 
-    <?= $form->field($model, 'adres') ?>
+    <?= $form->field($model, 'typegebouw') ?>
 
-    <?= $form->field($model, 'nummer') ?>
+    <?= $form->field($model, 'grootte') ?>
+
+    <?php // echo $form->field($model, 'adres') ?>
 
     <?php // echo $form->field($model, 'woonplaats') ?>
 

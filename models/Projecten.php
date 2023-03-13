@@ -10,8 +10,9 @@ use Yii;
  * @property int $id
  * @property int $klanten_id
  * @property string $klanten_naam
+ * @property string $typegebouw
+ * @property int $grootte
  * @property string $adres
- * @property string $nummer
  * @property string $woonplaats
  * @property string $status
  */
@@ -31,11 +32,10 @@ class Projecten extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['klanten_id', 'klanten_naam', 'adres', 'nummer', 'woonplaats', 'status'], 'required'],
-            [['klanten_id'], 'integer'],
-            [['status'], 'string'],
+            [['klanten_id', 'klanten_naam', 'typegebouw', 'grootte', 'adres', 'woonplaats', 'status'], 'required'],
+            [['klanten_id', 'grootte'], 'integer'],
+            [['typegebouw', 'status'], 'string'],
             [['klanten_naam', 'adres', 'woonplaats'], 'string', 'max' => 200],
-            [['nummer'], 'string', 'max' => 10],
         ];
     }
 
@@ -48,8 +48,9 @@ class Projecten extends \yii\db\ActiveRecord
             'id' => 'ID',
             'klanten_id' => 'Klanten ID',
             'klanten_naam' => 'Klanten Naam',
+            'typegebouw' => 'Typegebouw',
+            'grootte' => 'Grootte',
             'adres' => 'Adres',
-            'nummer' => 'Nummer',
             'woonplaats' => 'Woonplaats',
             'status' => 'Status',
         ];

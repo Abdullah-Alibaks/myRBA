@@ -9,9 +9,7 @@ use Yii;
  *
  * @property int $id
  * @property string $naam
- * @property string $adres
- * @property string $typegebouw
- * @property int $grootte
+ * @property string $telefoon
  */
 class Klanten extends \yii\db\ActiveRecord
 {
@@ -29,9 +27,9 @@ class Klanten extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['naam', 'adres', 'typegebouw', 'grootte'], 'required'],
-            [['grootte'], 'integer'],
-            [['naam', 'adres', 'typegebouw'], 'string', 'max' => 30],
+            [['naam', 'telefoon'], 'required'],
+            [['naam'], 'string', 'max' => 30],
+            [['telefoon'], 'string', 'max' => 11],
         ];
     }
 
@@ -43,9 +41,7 @@ class Klanten extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'naam' => 'Naam',
-            'adres' => 'Adres',
-            'typegebouw' => 'typegebouw',
-            'grootte' => 'Grootte',
+            'telefoon' => 'Telefoon',
         ];
     }
 }

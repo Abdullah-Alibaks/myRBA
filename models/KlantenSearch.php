@@ -17,8 +17,8 @@ class KlantenSearch extends Klanten
     public function rules()
     {
         return [
-            [['id', 'grootte'], 'integer'],
-            [['naam', 'adres', 'typegebouw'], 'safe'],
+            [['id'], 'integer'],
+            [['naam', 'telefoon'], 'safe'],
         ];
     }
 
@@ -59,12 +59,10 @@ class KlantenSearch extends Klanten
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'grootte' => $this->grootte,
         ]);
 
         $query->andFilterWhere(['like', 'naam', $this->naam])
-            ->andFilterWhere(['like', 'adres', $this->adres])
-            ->andFilterWhere(['like', 'typegebouw', $this->typegebouw]);
+            ->andFilterWhere(['like', 'telefoon', $this->telefoon]);
 
         return $dataProvider;
     }

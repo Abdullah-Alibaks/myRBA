@@ -14,11 +14,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'naam')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'adres')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'typegebouw')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'grootte')->textInput() ?>
+    <?= $form->field($model, 'telefoon')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

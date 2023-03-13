@@ -4,8 +4,6 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 
-//<?= $form->field($model, 'klanten_naam')->textInput(['maxlength' => true])>
-
 $klantenList = ArrayHelper::map($klanten,'id','naam');
 /** @var yii\web\View $this */
 /** @var app\models\Projecten $model */
@@ -16,12 +14,14 @@ $klantenList = ArrayHelper::map($klanten,'id','naam');
 
     <?php $form = ActiveForm::begin(); ?>
 
+
     <?= $form->field($model, 'klanten_id')->dropDownList($klantenList, ['prompt' => ''])->label('Klant') ?>
 
+    <?= $form->field($model, 'typegebouw')->dropDownList([ 'Vrijstaand' => 'Vrijstaand', 'Flat' => 'Flat', 'Rijtjeshuis' => 'Rijtjeshuis', 'Appartement' => 'Appartement', ], ['prompt' => '']) ?>
+
+    <?= $form->field($model, 'grootte')->textInput() ?>
 
     <?= $form->field($model, 'adres')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'nummer')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'woonplaats')->textInput(['maxlength' => true]) ?>
 
