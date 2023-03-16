@@ -18,7 +18,7 @@ class ProjectenSearch extends Projecten
     {
         return [
             [['id', 'klanten_id', 'grootte'], 'integer'],
-            [['klanten_naam', 'typegebouw', 'adres', 'woonplaats', 'status'], 'safe'],
+            [['typegebouw', 'adres', 'woonplaats', 'status'], 'safe'],
         ];
     }
 
@@ -63,8 +63,7 @@ class ProjectenSearch extends Projecten
             'grootte' => $this->grootte,
         ]);
 
-        $query->andFilterWhere(['like', 'klanten_naam', $this->klanten_naam])
-            ->andFilterWhere(['like', 'typegebouw', $this->typegebouw])
+        $query->andFilterWhere(['like', 'typegebouw', $this->typegebouw])
             ->andFilterWhere(['like', 'adres', $this->adres])
             ->andFilterWhere(['like', 'woonplaats', $this->woonplaats])
             ->andFilterWhere(['like', 'status', $this->status]);

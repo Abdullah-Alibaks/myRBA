@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+
 /**
  * ProjectenController implements the CRUD actions for Projecten model.
  */
@@ -39,12 +40,15 @@ class ProjectenController extends Controller
      */
     public function actionIndex()
     {
+        $klanten = Klanten::find()->all();
         $searchModel = new ProjectenSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
+
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'klanten' => $klanten,
         ]);
     }
 
@@ -56,8 +60,10 @@ class ProjectenController extends Controller
      */
     public function actionView($id)
     {
+        $klanten = Klanten::find()->all();
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'klanten' => $klanten,
         ]);
     }
 
@@ -91,6 +97,7 @@ class ProjectenController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $klanten = Klanten::find()->all();
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -98,6 +105,7 @@ class ProjectenController extends Controller
 
         return $this->render('update', [
             'model' => $model,
+            'klanten' => $klanten,
         ]);
     }
 

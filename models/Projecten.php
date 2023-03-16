@@ -32,10 +32,10 @@ class Projecten extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['klanten_id', 'klanten_naam', 'typegebouw', 'grootte', 'adres', 'woonplaats', 'status'], 'required'],
+            [['klanten_id', 'typegebouw', 'grootte', 'adres', 'woonplaats', 'status'], 'required'],
             [['klanten_id', 'grootte'], 'integer'],
             [['typegebouw', 'status'], 'string'],
-            [['klanten_naam', 'adres', 'woonplaats'], 'string', 'max' => 200],
+            [['adres', 'woonplaats'], 'string', 'max' => 200],
         ];
     }
 
@@ -55,4 +55,8 @@ class Projecten extends \yii\db\ActiveRecord
             'status' => 'Status',
         ];
     }
+    public function getKlanten()
+{
+   return $this->hasOne(Klanten::className(), ['id' => 'klanten_id']);
+}
 }

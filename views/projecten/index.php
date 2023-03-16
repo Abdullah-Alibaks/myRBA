@@ -5,10 +5,15 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
+use yii\helpers\ArrayHelper;
 
 /** @var yii\web\View $this */
 /** @var app\models\ProjectenSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
+
+$klantenList = ArrayHelper::map($klanten,'id','naam');
+
+//dd($klanten); 
 
 $this->title = 'Projecten';
 $this->params['breadcrumbs'][] = $this->title;
@@ -17,9 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Create Projecten', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
@@ -31,11 +34,16 @@ $this->params['breadcrumbs'][] = $this->title;
 
             //'id',
             //'klanten_id',
-            'klanten_naam',
+            ['attribute' => 'klanten_id',
+             'value' => 'klanten.naam',
+              'filter' => $klantenList,
+              'label' => 'Naam Klant'
+            
+            ],
             'typegebouw',
             'grootte',
-            //'adres',
-            //'woonplaats',
+            'adres',
+            'woonplaats',
             //'status',
             [
                 'class' => ActionColumn::className(),
@@ -45,6 +53,10 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ],
     ]); ?>
+
+    <p>
+        <?= Html::a('Nieuw', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
 
 
 </div>
