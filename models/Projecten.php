@@ -3,6 +3,8 @@
 namespace app\models;
 
 use Yii;
+use yii\web\UploadedFile;
+
 
 /**
  * This is the model class for table "projecten".
@@ -60,3 +62,4 @@ class Projecten extends \yii\db\ActiveRecord
    return $this->hasOne(Klanten::className(), ['id' => 'klanten_id']);
 }
 }
+
