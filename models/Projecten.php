@@ -58,8 +58,8 @@ class Projecten extends \yii\db\ActiveRecord
         ];
     }
     public function getKlanten()
-{
-   return $this->hasOne(Klanten::className(), ['id' => 'klanten_id']);
-}
+    {
+       return $this->hasOne(Klanten::className(), ['id' => 'klanten_id']);
+    }
 }
 

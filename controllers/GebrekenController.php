@@ -4,9 +4,11 @@ namespace app\controllers;
 
 use app\models\Gebreken;
 use app\models\GebrekenSearch;
+use app\models\Projecten;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * GebrekenController implements the CRUD actions for Gebreken model.
@@ -38,12 +40,14 @@ class GebrekenController extends Controller
      */
     public function actionIndex()
     {
+        $projecten = Projecten::find()->all();
         $searchModel = new GebrekenSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'projecten' => $projecten,
         ]);
     }
 
@@ -55,8 +59,10 @@ class GebrekenController extends Controller
      */
     public function actionView($id)
     {
+        $projecten = Projecten::find()->all();
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'projecten' => $projecten,
         ]);
     }
 
@@ -68,17 +74,26 @@ class GebrekenController extends Controller
     public function actionCreate()
     {
         $model = new Gebreken();
+        $projecten = Projecten::find()->all();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
             }
-        } else {
-            $model->loadDefaultValues();
+            $model->gebreek_foto = UploadedFile::getInstance($model, 'gebreek_foto');
+            if ($model->gebreek_foto) {
+                $fileName = $model->gebreek_foto->baseName . '.' . $model->gebreek_foto->extension;
+                $model->gebreek_foto->saveAs('gebreekfotos/' . $fileName);
+                $model->gebreek_foto = $fileName;
+            }
+            if ($model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
 
         return $this->render('create', [
             'model' => $model,
+            'projecten' => $projecten,
         ]);
     }
 
@@ -92,13 +107,26 @@ class GebrekenController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $projecten = Projecten::find()->all();
+        
+        if ($this->request->isPost) {
+            if ($model->load($this->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+            $model->gebreek_foto = UploadedFile::getInstance($model, 'gebreek_foto');
+            if ($model->gebreek_foto) {
+                $fileName = $model->gebreek_foto->baseName . '.' . $model->gebreek_foto->extension;
+                $model->gebreek_foto->saveAs('gebreekfotos/' . $fileName);
+                $model->gebreek_foto = $fileName;
+            }
+            if ($model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
 
         return $this->render('update', [
             'model' => $model,
+            'projecten' => $projecten,
         ]);
     }
 

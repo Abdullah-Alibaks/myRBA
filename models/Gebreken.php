@@ -1,7 +1,7 @@
 <?php
 
 namespace app\models;
-
+use yii\web\UploadedFile;
 use Yii;
 
 /**
@@ -31,7 +31,7 @@ class Gebreken extends \yii\db\ActiveRecord
         return [
             [['projecten_id', 'gebreek_info', 'gebreek_foto', 'gebreek_kosten'], 'required'],
             [['projecten_id', 'gebreek_kosten'], 'integer'],
-            [['gebreek_foto'], 'file', 'skipOnEmpty' => true, 'extensions' => 'pdf'],
+            [['gebreek_foto'], 'file', 'skipOnEmpty' => true, 'extensions' => 'jpg, jpeg, gif, png'],
 
             [['gebreek_info'], 'string', 'max' => 200],
         ];
@@ -49,5 +49,9 @@ class Gebreken extends \yii\db\ActiveRecord
             'gebreek_foto' => 'Gebreek Foto',
             'gebreek_kosten' => 'Gebreek Kosten',
         ];
+    }
+    public function getProjecten()
+    {
+       return $this->hasOne(getProjecten::className(), ['id' => 'projecten_id']);
     }
 }

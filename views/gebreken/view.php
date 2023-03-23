@@ -2,7 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\helpers\ArrayHelper;
 
+$projectenList = arrayHelper::map($projecten,'id','adres');
 /** @var yii\web\View $this */
 /** @var app\models\Gebreken $model */
 
@@ -29,10 +31,15 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
-            'projecten_id',
+            //'id',
+            //'projecten_id',
+            ['label' => 'Project (adres)', 'value'=> $projectenList[$model->projecten_id]],
             'gebreek_info',
-            'gebreek_foto',
+            [
+                'attribute' => 'gebreek_foto',
+                'value' => '@web/gebreekfotos/' . $model->gebreek_foto,
+                'format' => ['image', ['class' => 'img-responsive','style' => 'width:300px']],
+            ],
             'gebreek_kosten',
         ],
     ]) ?>
