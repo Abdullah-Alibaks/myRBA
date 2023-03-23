@@ -5,7 +5,7 @@ use yii\widgets\ActiveForm;
 use yii\web\UploadedFile;
 use yii\helpers\ArrayHelper;
 
-$projectenList = arrayHelper::map($projecten,'id','adres');
+$projectenList = ArrayHelper::map($projecten,'id','adres');
 
 /** @var yii\web\View $this */
 /** @var app\models\Gebreken $model */

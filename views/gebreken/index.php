@@ -5,12 +5,15 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
+use yii\helpers\ArrayHelper;
+
+$projectenList = ArrayHelper::map($projecten,'id','adres');
 
 /** @var yii\web\View $this */
 /** @var app\models\GebrekenSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Gebrekens';
+$this->title = 'Gebreken';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="gebreken-index">
@@ -27,10 +30,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            //['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'projecten_id',
+            //'id',
+            //'projecten_id',
+            ['attribute' => 'projecten_id',
+            'value' => 'projecten.adres',
+             'filter' => $projectenList,
+             'label' => 'Project'],
             'gebreek_info',
             'gebreek_foto',
             'gebreek_kosten',

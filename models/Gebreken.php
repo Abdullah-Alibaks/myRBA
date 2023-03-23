@@ -52,6 +52,6 @@ class Gebreken extends \yii\db\ActiveRecord
     }
     public function getProjecten()
     {
-       return $this->hasOne(getProjecten::className(), ['id' => 'projecten_id']);
+       return $this->hasOne(Projecten::className(), ['id' => 'projecten_id']);
     }
 }

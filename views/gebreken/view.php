@@ -9,7 +9,7 @@ $projectenList = arrayHelper::map($projecten,'id','adres');
 /** @var app\models\Gebreken $model */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Gebrekens', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Gebreken', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
