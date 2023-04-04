@@ -56,7 +56,10 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                         ['class' => 'nav-link btn btn-link logout']
                     )
                     . Html::endForm()
-                    . '</li>'
+                    . '</li>',
+            ['label' => 'Registreer',
+              'url' => ['site/register'],
+              'visible' => Yii::$app->user->isGuest, 'options' => ['class' => 'ml-auto']]
         ]
     ]);
     NavBar::end();
