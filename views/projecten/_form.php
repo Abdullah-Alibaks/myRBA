@@ -9,7 +9,7 @@ $klantenList = ArrayHelper::map($klanten,'id','naam');
 /** @var app\models\Projecten $model */
 /** @var yii\widgets\ActiveForm $form */
 ?>
-
+<!--Via de onderstaande form kan gebruiker een nieuw project aanmaken voor een klant. De klant moet worden geselecteerd via de eerste invoerveld-->
 <div class="projecten-form">
 
     <?php $form = ActiveForm::begin(); ?>

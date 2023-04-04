@@ -28,15 +28,16 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
-
+    
     <?= DetailView::widget([
+        //Detailview aangepast zodat je klant naam ziet ipv klant_id en grootte in m2 voor duidelijkheid
         'model' => $model,
         'attributes' => [
             //'id',
             //'klanten_id',
             ['label' => 'Klant','value' => $klantenList[$model->klanten_id]],
             'typegebouw',
-            'grootte',
+            ['label' => 'Grootte in m2', 'value' => $model->grootte],
             'adres',
             'woonplaats',
             'status',
