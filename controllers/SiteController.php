@@ -19,23 +19,26 @@ class SiteController extends Controller
     public function behaviors()
     {
         return [
+            //dit zorgt ervoor dat alleen ingelogde gebruikers toegang hebben tot alle overzichten en acties. Deze return staat in elke controller
             'access' => [
                 'class' => AccessControl::class,
-                'only' => ['logout'],
+                'only' => ['index', 'view', 'update', 'create', 'delete'],
                 'rules' => [
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['index', 'view', 'update', 'create', 'delete'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
                 ],
             ],
+
             'verbs' => [
                 'class' => VerbFilter::class,
                 'actions' => [
                     'logout' => ['post'],
                 ],
             ],
+
         ];
     }
 
