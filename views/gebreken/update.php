@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var app\models\Gebreken $model */
 
-$this->title = 'Update Gebreken: ' . $model->id;
+$this->title = 'Wijzig Gebreek: ';
 $this->params['breadcrumbs'][] = ['label' => 'Gebrekens', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';

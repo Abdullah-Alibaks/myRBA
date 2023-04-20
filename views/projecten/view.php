@@ -11,7 +11,7 @@ $gebrekenList = ArrayHelper::map($gebreken,'id','projecten_id');
 
 //dd($gebrekenList);
 
-$this->title = $model->adresp;
+$this->title = $model->adres;
 $this->params['breadcrumbs'][] = ['label' => 'Projecten', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);

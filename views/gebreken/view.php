@@ -8,7 +8,7 @@ $projectenList = arrayHelper::map($projecten,'id','adres');
 /** @var yii\web\View $this */
 /** @var app\models\Gebreken $model */
 
-$this->title = $model->id;
+$this->title = 'Gebreek';
 $this->params['breadcrumbs'][] = ['label' => 'Gebreken', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
