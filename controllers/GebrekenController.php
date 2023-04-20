@@ -86,12 +86,13 @@ class GebrekenController extends Controller
     {
         $model = new Gebreken();
         $projecten = Projecten::find()->all();
+        
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
             }
-            $model->gebreek_foto = UploadedFile::getInstance($model, 'gebreek_foto');
+            $model->gebreek_foto = UploadedFile::getInstances($model, 'gebreek_foto');
             if ($model->gebreek_foto) {
                 $fileName = $model->gebreek_foto->baseName . '.' . $model->gebreek_foto->extension;
                 $model->gebreek_foto->saveAs('gebreekfotos/' . $fileName);

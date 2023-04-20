@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var app\models\Gebreken $model */
 
-$this->title = 'Create Gebreken';
-$this->params['breadcrumbs'][] = ['label' => 'Gebrekens', 'url' => ['index']];
+$this->title = 'Voeg Gebreken toe';
+$this->params['breadcrumbs'][] = ['label' => 'Gebreken', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="gebreken-create">

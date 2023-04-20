@@ -21,12 +21,12 @@ en in het 3de veld kan gebruiker een afbeelding van de gebreek uploaden-->
 
     <?= $form->field($model, 'gebreek_info')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'gebreek_foto')->fileInput() ?>
+    <?= $form->field($model, 'gebreek_foto')->fileInput(['multiple' => true]) ?>
 
     <?= $form->field($model, 'gebreek_kosten')->textInput() ?>
-
+    <br>
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Toevoegen', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

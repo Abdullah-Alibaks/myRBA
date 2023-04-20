@@ -26,9 +26,9 @@ $klantenList = ArrayHelper::map($klanten,'id','naam');
     <?= $form->field($model, 'woonplaats')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'status')->dropDownList([ 'Controle' => 'Controle', 'Offerte' => 'Offerte', 'Afgerond' => 'Afgerond', '' => '', ], ['prompt' => '']) ?>
-
+     <br>
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Opslaan', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

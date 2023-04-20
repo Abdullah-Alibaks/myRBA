@@ -4,6 +4,7 @@ namespace app\controllers;
 use yii\filters\AccessControl;
 use app\models\Projecten;
 use app\models\ProjectenSearch;
+use app\models\Gebreken;
 use app\models\Klanten;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -75,9 +76,15 @@ class ProjectenController extends Controller
     public function actionView($id)
     {
         $klanten = Klanten::find()->all();
+        $gebreken = Gebreken::find()->all();
+        $searchModel = new ProjectenSearch();
+        $dataProvider = $searchModel->search($this->request->queryParams);
         return $this->render('view', [
             'model' => $this->findModel($id),
             'klanten' => $klanten,
+            'gebreken' => $gebreken,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
         ]);
     }
 

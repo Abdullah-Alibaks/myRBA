@@ -31,7 +31,7 @@ class Gebreken extends \yii\db\ActiveRecord
         return [
             [['projecten_id', 'gebreek_info', 'gebreek_foto', 'gebreek_kosten'], 'required'],
             [['projecten_id', 'gebreek_kosten'], 'integer'],
-            [['gebreek_foto'], 'file', 'skipOnEmpty' => true, 'extensions' => 'jpg, jpeg, gif, png'],
+            [['gebreek_foto'], 'file', 'skipOnEmpty' => true, 'extensions' => 'jpg, jpeg, gif, png', 'maxFiles' => 4],
 
             [['gebreek_info'], 'string', 'max' => 200],
         ];

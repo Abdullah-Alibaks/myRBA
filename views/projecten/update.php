@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var app\models\Projecten $model */
 
-$this->title = 'Update Projecten: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Projectens', 'url' => ['index']];
+$this->title = 'Wijzig project gegevens ';
+$this->params['breadcrumbs'][] = ['label' => 'Projecten', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Wijzigen';
 ?>
 <div class="projecten-update">
 

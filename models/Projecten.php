@@ -61,5 +61,9 @@ class Projecten extends \yii\db\ActiveRecord
     {
        return $this->hasOne(Klanten::className(), ['id' => 'klanten_id']);
     }
+    public function getGebreken()
+    {
+        return $this->hasMany(Gebreken::classname(), ['id' => 'projecten_id']);
+    }
 }
 

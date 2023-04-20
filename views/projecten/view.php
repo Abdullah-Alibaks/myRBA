@@ -7,9 +7,11 @@ use yii\helpers\ArrayHelper;
 /** @var app\models\Projecten $model */
 
 $klantenList = ArrayHelper::map($klanten,'id','naam');
+$gebrekenList = ArrayHelper::map($gebreken,'id','projecten_id');
 
+//dd($gebrekenList);
 
-$this->title = $model->id;
+$this->title = $model->adresp;
 $this->params['breadcrumbs'][] = ['label' => 'Projecten', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
@@ -43,5 +45,40 @@ $this->params['breadcrumbs'][] = $this->title;
             'status',
         ],
     ]) ?>
+    <h2>Gebreken</h2>
+    <!-- onderstaande loop handelt met de array af zodat ik alle gebreken kan laten zien  -->
+    <!-- Met de If statement zorg ik ervoor dat alleen de gebreken van het specifieke project te zijn in de view.  -->
+    <?= Html::a('Voeg een gebreek toe', ['gebreken/create', 'id' => $model->id], ['class' => 'btn btn-success']); echo "<br>"; ?>
+    <?php
+    $totalCosts = 0;
+    foreach ($gebreken as $gebreek): ?>
+        <?php if ($gebreek['projecten_id'] == $model->id):
+            $totalCosts += $gebreek['gebreek_kosten']; ?>
+            <br>    
+    <?= DetailView::widget([
+        'model' => $model,
+        'attributes' => [
+            ['label' => 'Info', 'value' => $gebreek['gebreek_info']],
+            [
+                'attribute' => 'gebreek_foto',
+                'value' => '@web/gebreekfotos/' . $gebreek['gebreek_foto'],
+                'format' => ['image', ['class' => 'img-responsive','style' => 'width:300px']],
+            ],
+            ['label' => 'Kosten indicatie', 'value' => $gebreek['gebreek_kosten']],
+
+        ],
+
+    ]);
+        endif;
+    endforeach; 
+    ?>
+     <br>
+   <?= DetailView::widget([
+    'model' => $model,
+    'attributes' => [
+        ['label' => 'Totale kosten van gebreken', 'value' => $totalCosts],
+    ],
+]); ?>
+    
 
 </div>
