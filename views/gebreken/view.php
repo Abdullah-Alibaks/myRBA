@@ -8,6 +8,8 @@ $projectenList = arrayHelper::map($projecten,'id','adres');
 /** @var yii\web\View $this */
 /** @var app\models\Gebreken $model */
 
+
+
 $this->title = 'Gebreek';
 $this->params['breadcrumbs'][] = ['label' => 'Gebreken', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
@@ -43,5 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'gebreek_kosten',
         ],
     ]) ?>
+
+    <?= Html::a('Naar project', ['projecten/view', 'id' => $model->projecten_id], ['class' => 'btn btn-primary']) ?>
 
 </div>
