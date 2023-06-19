@@ -9,10 +9,10 @@ $this->title = 'MyRba';
 <div class="site-index">
 
     <div class="jumbotron text-center bg-transparent">
-        <?php echo Html::img('@web/images/logo.png',  [
+        <?php echo Html::img('@web/images/logomyrba.png',  [
     'alt' => 'Logo',
     'style' => 'width: 300px; height: auto;'
-]) ?>
+        ]) ?>
     </div>
 
     <div class="body-content">

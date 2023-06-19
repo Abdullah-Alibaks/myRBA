@@ -35,7 +35,7 @@ class Projecten extends \yii\db\ActiveRecord
     {
         return [
             [['klanten_id', 'typegebouw', 'grootte', 'adres', 'woonplaats', 'status'], 'required'],
-            [['klanten_id', 'grootte'], 'integer'],
+            [['klanten_id', 'grootte'], 'integer', 'message' => '{attribute} must be a number'],
             [['typegebouw', 'status'], 'string'],
             [['adres', 'woonplaats'], 'string', 'max' => 200],
         ];

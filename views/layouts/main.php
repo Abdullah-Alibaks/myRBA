@@ -33,20 +33,26 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     
     <?php
     NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
+        
         'options' => ['class' => 'navbar-expand-md navbar-dark bg-dark fixed-top']
     ]);
    
-    Html::img('@web/images/logo.png', ['alt'=>'Logo']);
+   echo Html::a( 
+        Html::img('@web/images/logomyrba-light.png',  [
+        'alt' => 'Logo',
+        'style' => 'width: 100px; height: 100x;',
+   ]),
+   ['/site/index']);
     
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'Projecten', 'url' => ['/projecten/index']],
+            ['label' => 'Projecten', 'url' => ['/projecten/index'], 'items'=> [
+                ['label' => 'Gebreken', 'url' => ['/gebreken/index']],
+            ]],
             ['label' => 'Klanten', 'url' => ['/klanten/index']],
-            ['label' => 'Gebreken', 'url' => ['/gebreken/index']],
+            
             Yii::$app->user->isGuest
                 ? ['label' => 'Login', 'url' => ['/site/login']]
                 : '<li class="nav-item">'
@@ -80,7 +86,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     <div class="container">
         <div class="row text-muted">
             <div class="col-md-6 text-center text-md-start">&copy; ReinBouwAdvies <?= date('Y') ?></div>
-            <div class="col-md-6 text-center text-md-end"><?= Yii::powered() ?></div>
+               <div class="col-md-6 text-center text-md-end"></div>
         </div>
     </div>
 </footer>
