@@ -49,6 +49,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'Projecten', 'url' => ['/projecten/index'], 'items'=> [
+                ['label' => 'Overzicht', 'url' => ['/projecten/index']],
                 ['label' => 'Gebreken', 'url' => ['/gebreken/index']],
             ]],
             ['label' => 'Klanten', 'url' => ['/klanten/index']],

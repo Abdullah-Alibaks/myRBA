@@ -29,7 +29,7 @@ class Gebreken extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['projecten_id', 'gebreek_info', 'gebreek_kosten'], 'required'],
+            [['projecten_id', 'gebreek_info', 'gebreek_foto', 'gebreek_kosten'], 'required'],
             [['projecten_id', 'gebreek_kosten'], 'integer', 'min' => 0, 'message' => 'Voer een getal boven de 0 in'],
             [['gebreek_foto'], 'file', 'skipOnEmpty' => true, 'extensions' => 'jpg, jpeg, gif, png'],
 

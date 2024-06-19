@@ -21,7 +21,7 @@ en in het 3de veld kan gebruiker een afbeelding van de gebreek uploaden-->
 
     <?= $form->field($model, 'gebreek_info')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'gebreek_foto')->fileInput(['multiple' => true, 'value' => $model->gebreek_foto]) ?>
+    <?= $form->field($model, 'gebreek_foto')->fileInput(['multiple' => true]) ?>
 
     <?= $form->field($model, 'gebreek_kosten')->textInput() ?>
     <br>
